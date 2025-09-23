@@ -10,8 +10,8 @@ Key Features of the Image Compressor / Resizer (v1) are listed below:
 •	Upload multiple images at once (up to 50)
 •	Resize all images to 550 × 550px (cropped to fit)
 •	Convert all images to JPG from PNG, JPEG / JPG, WEBP, TIFF
-•	Show a progress bar and “Processing X of Y images” while images are being compressed
-•	Display thumbnails with download links on the frontend
+•	Shows a progress bar and 'Processing X of Y images' while images are being compressed
+•	Display thumbnails with download links on the front-end
 •	Export each compressed image individually
 •	Strip metadata to reduce file size
 •	Reduce DPI to 96
