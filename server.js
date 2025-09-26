@@ -26,7 +26,7 @@ app.post("/compress-upload", upload.array("images", 50), async (req, res) => {
       try {
         const compressedBuffer = await sharp(file.buffer)
           .resize(550, 550, { fit: "cover" })
-          .jpeg({ quality: 80 })
+          .jpeg({ quality: 95 })
           .toBuffer();
 
         const filename = file.originalname.replace(/\.[^/.]+$/, ".jpg");
