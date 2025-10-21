@@ -3,7 +3,6 @@ const multer = require("multer");
 const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs");
-const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 const PORT = 3000;
@@ -25,12 +24,12 @@ app.post("/compress-upload", upload.array("images", 50), async (req, res) => {
     for (const file of files) {
       try {
         const compressedBuffer = await sharp(file.buffer)
-          .resize(550, 550, { fit: "cover" })
+          .resize(550, 550, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 1 } })
           .jpeg({ quality: 95 })
           .toBuffer();
 
         const filename = file.originalname.replace(/\.[^/.]+$/, ".jpg");
-        const filepath = path.join(TEMP_DIR, `${uuidv4()}_${filename}`);
+        const filepath = path.join(TEMP_DIR, filename);
 
         fs.writeFileSync(filepath, compressedBuffer);
         resultFiles.push({ filename, path: filepath });
