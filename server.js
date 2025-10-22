@@ -25,14 +25,7 @@ app.post("/compress-upload", upload.array("images", 50), async (req, res) => {
       try {
         const compressedBuffer = await sharp(file.buffer)
           .flatten({ background: { r: 255, g: 255, b: 255 } })
-          .resize(520, 550, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 1 } })
-          .extend({
-            top: 0,
-            bottom: 0,
-            left: 15,
-            right: 15,
-            background: { r: 255, g: 255, b: 255, alpha: 1 }
-          })
+          .resize(550, 550, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 1 } })
           .jpeg({ quality: 95 })
           .toBuffer();
 
